@@ -1,0 +1,44 @@
+BNPL stands for Buy Now, Pay Later, a flexible payment method letting customers buy products immediately and pay in installments later, often interest-free, by splitting the cost into smaller, manageable payments over time. It acts as a short-term loan, with the BNPL provider paying the merchant upfront and the customer repaying the provider in installments, making large purchases more affordable and improving cash flow. 
+
+The Buy Now Pay Later dataset is taken from Kaggle: https://www.kaggle.com/datasets/bdoey1/bnpl-data-v1/data
+
+The name of the dataset is loan_working_copy.csv
+
+The dataset has 1048575 rows and 29 columns
+
+There is no detailed description about the columns of the dataset, so lets just keep only the important ones and exclude the unwanted columns, Lets do it in powerquery
+
+Lets remove emp_title, emp_length columns from the dataset.
+
+After removing two columns our final dataset has 27 columns.
+
+slicers:
+
+Loan status- to know why type of loans data are we analysing
+
+Loan Term - to see the relation between loan term and other factors
+
+Sub grade - to focus on higher risk customers mainly
+
+State - to see how the others factors vary for each state
+
+loan purpose - customers intention for loan
+
+These visualizations answer the questions,
+
+What customers are using BNPL for.
+
+To see if higher interest rate is being charged for riskier customers
+
+which grades are financially stretched
+
+Avg DTI = AVERAGE(bnpl[total_dti])
+
+Delinquency Rate = 
+DIVIDE(
+    COUNTROWS(FILTER(bnpl, bnpl[delinq_2yrs] > 0)),
+    COUNTROWS(bnpl)
+)
+
+
+
